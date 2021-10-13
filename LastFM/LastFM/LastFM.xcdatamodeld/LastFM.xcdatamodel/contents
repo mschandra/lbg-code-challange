@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AlbumData" representedClassName="AlbumData" syncable="YES">
+        <attribute name="artistName" optional="YES" attributeType="String"/>
+        <attribute name="listeners" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mbid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="playcount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageData"/>
+        <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrackData"/>
+        <relationship name="wiki" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WikiData"/>
+    </entity>
+    <entity name="ArtistData" representedClassName="ArtistData" syncable="YES">
+        <attribute name="mbid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="ImageData" representedClassName="ImageData" syncable="YES">
+        <attribute name="refId" optional="YES" attributeType="String"/>
+        <attribute name="sizeType" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="TrackData" representedClassName="TrackData" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="refId" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ArtistData"/>
+    </entity>
+    <entity name="WikiData" representedClassName="WikiData" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="published" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="AlbumData" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="ArtistData" positionX="-18" positionY="63" width="128" height="88"/>
+        <element name="ImageData" positionX="-54" positionY="18" width="128" height="88"/>
+        <element name="TrackData" positionX="-36" positionY="45" width="128" height="118"/>
+        <element name="WikiData" positionX="0" positionY="90" width="128" height="88"/>
+    </elements>
+</model>
